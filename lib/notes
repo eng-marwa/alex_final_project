@@ -1,0 +1,16 @@
+clean architecture
+- features first
+        splash feature ->
+                         - presentation layer -> ui, widgets, cubit
+                         - domain layer -> entities, usecases, repositories(abstract)
+                         - data layer -> models, datasources(remote,local), repositories(impl)
+        home features
+- layers first
+        - presentation layer -> ui, widgets, cubit
+                - splash
+                - home
+        - domain layer -> entities, usecases, repositories(abstract)
+        - data layer -> models, datasources(remote,local), repositories(impl)
+
+ ----------------------------------------------------
+ go_router, injectable,
