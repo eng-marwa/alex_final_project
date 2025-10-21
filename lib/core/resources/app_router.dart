@@ -1,7 +1,9 @@
 import 'package:alex_final_project/core/di/module.dart';
 import 'package:alex_final_project/core/storage/shared_prefs_helper.dart';
-import 'package:alex_final_project/features/auth/login/login_screen.dart';
+import 'package:alex_final_project/features/auth/login/presentation/cubit/auth_cubit.dart';
+import 'package:alex_final_project/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:alex_final_project/features/home/home_screen.dart';
+import 'package:alex_final_project/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:alex_final_project/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:alex_final_project/features/splash/data/data_source/splash_local_data_source.dart';
 import 'package:alex_final_project/features/splash/data/repositories/splash_repository_impl.dart';
@@ -36,14 +38,20 @@ class AppRouter {
       case Routes.splash:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<SplashCubit>(
-            create: (context) => SplashCubit(sl(), sl()),
+            create: (context) => sl<SplashCubit>(),
             child: SplashScreen(),
           ),
         );
       case Routes.onboarding:
-        return MaterialPageRoute(builder: (context) => OnboardingScreen());
+        return MaterialPageRoute(builder: (context) => BlocProvider<OnboardingCubit>(
+    create: (context) =>sl<OnboardingCubit>(), child: OnboardingScreen()));
       case Routes.login:
-        return MaterialPageRoute(builder: (context) => LoginScreen());
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<AuthCubit>(
+            create: (context) => sl<AuthCubit>(),
+            child: LoginScreen(),
+          ),
+        );
       case Routes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen());
       default:

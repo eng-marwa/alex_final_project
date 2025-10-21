@@ -13,6 +13,12 @@ class AppTextStyles {
     fontWeight: FontWeight.w500,
     color: AppColors.primaryColor,
   );
+  static final TextStyle darkGrey12Color14Medium = TextStyle(
+    fontFamily: _fontFamily,
+    fontSize: 14,
+    fontWeight: FontWeight.w500,
+    color: AppColors.darkGrey12Color,
+  );
 
   static final TextStyle whiteColor16Bold = TextStyle(
     fontFamily: _secondaryFamily,
