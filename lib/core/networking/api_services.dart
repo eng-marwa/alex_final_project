@@ -42,3 +42,20 @@ DartZ
 Freezed
 Custom class
  */
+
+/*
+  Future<ApiResult<LoginResponse>> login(LoginRequest request) async {
+  }
+  Futrure<Either<ApiException,LoginResponse>> login(LoginRequest request) async {
+
+}
+
+abstract class Response{}
+class Success extends Response{}
+class Failure extends Response{}
+
+
+sealed class Response{}
+class Success extends Response{}
+class Failure extends Response{}
+ */

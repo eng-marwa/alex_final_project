@@ -23,6 +23,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 GetIt sl = GetIt.instance;
 
 Future<void> setupDependencies() async {
+  final dio = await DioConfig.instance.getDio();
   final prefs = await SharedPreferences.getInstance();
   sl.registerLazySingleton<SharedPrefsHelper>(() => SharedPrefsHelper(prefs));
 
@@ -46,9 +47,7 @@ Future<void> setupDependencies() async {
   sl.registerFactory<OnboardingCubit>(() => OnboardingCubit(sl()));
 
   //login
-  sl.registerLazySingleton<ApiServices>(
-    () => ApiServices(DioConfig.instance.getDio()),
-  );
+  sl.registerLazySingleton<ApiServices>(() => ApiServices(dio));
   sl.registerLazySingleton<AuthDataSource>(() => AuthDataSource(sl()));
   sl.registerFactory<AuthRepository>(() => AuthRepositoryImpl(sl(), sl()));
   sl.registerFactory<SetSignInStatusUseCase>(

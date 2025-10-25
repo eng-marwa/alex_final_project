@@ -7,3 +7,4 @@ abstract class ApiResult<T> with _$ApiResult<T>{
   const factory ApiResult.failure(ApiException exception) = ApiFailure<T>;
 
 }
+

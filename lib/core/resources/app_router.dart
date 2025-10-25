@@ -3,6 +3,7 @@ import 'package:alex_final_project/core/storage/shared_prefs_helper.dart';
 import 'package:alex_final_project/features/auth/login/presentation/cubit/auth_cubit.dart';
 import 'package:alex_final_project/features/auth/login/presentation/screens/login_screen.dart';
 import 'package:alex_final_project/features/home/home_screen.dart';
+import 'package:alex_final_project/features/main/main_screen.dart';
 import 'package:alex_final_project/features/onboarding/presentation/cubit/onboarding_cubit.dart';
 import 'package:alex_final_project/features/onboarding/presentation/screens/onboarding_screen.dart';
 import 'package:alex_final_project/features/splash/data/data_source/splash_local_data_source.dart';
@@ -28,6 +29,9 @@ class Routes {
   static const String notifications = '/notifications';
   static const String offers = '/offers';
   static const String onboarding = '/onboarding';
+  static const String category = '/category';
+  static const String cart = '/cart';
+  static const String main = '/main';
 }
 
 class AppRouter {
@@ -43,8 +47,12 @@ class AppRouter {
           ),
         );
       case Routes.onboarding:
-        return MaterialPageRoute(builder: (context) => BlocProvider<OnboardingCubit>(
-    create: (context) =>sl<OnboardingCubit>(), child: OnboardingScreen()));
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider<OnboardingCubit>(
+            create: (context) => sl<OnboardingCubit>(),
+            child: OnboardingScreen(),
+          ),
+        );
       case Routes.login:
         return MaterialPageRoute(
           builder: (context) => BlocProvider<AuthCubit>(
@@ -54,6 +62,8 @@ class AppRouter {
         );
       case Routes.home:
         return MaterialPageRoute(builder: (context) => HomeScreen());
+      case Routes.main:
+        return MaterialPageRoute(builder: (context) => MainScreen());
       default:
         return _undefinedRoute();
     }

@@ -16,6 +16,7 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   dio: ^5.9.0
   pretty_dio_logger: ^1.4.0
+  flutter_screenutil: ^5.9.3
 #  http_certificate_pinning: ^3.0.1
   flutter_bloc: ^9.1.1
   get_it: ^8.2.0
@@ -35,6 +36,7 @@ flutter:
 
   assets:
     - assets/icons/
+    - assets/cert/
 
   fonts:
     - family: OpenSans

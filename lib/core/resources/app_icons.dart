@@ -12,7 +12,7 @@ class AppIcons {
 
   //app bar icons
   static const String searchIcon = '${_path}search.svg';
-  static const String notifications = '${_path}notifications.svg';
+  static const String notificationsIcon = '${_path}notification.svg';
   static const String badgeIcon = '${_path}badge.svg';
 
   //onboarding images

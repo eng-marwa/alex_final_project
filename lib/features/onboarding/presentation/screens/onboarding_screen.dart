@@ -45,7 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   ? Align(
                       alignment: AlignmentDirectional.centerStart,
                       child: GestureDetector(
-                        onTap: () => context.navigateReplacement(Routes.home),
+                        onTap: () => context.navigateReplacement(Routes.main),
                         child: Text(
                           'Skip',
                           style: AppTextStyles.primaryColor16Medium,
@@ -101,7 +101,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       curve: Curves.easeIn,
                     );
                   }else{
-                    context.navigateReplacement(Routes.home);
+                    context.navigateReplacement(Routes.main);
                   }
                 },
                 buttonLabel:

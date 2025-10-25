@@ -22,7 +22,7 @@ class SplashCubit extends Cubit<void> {
       context.navigateReplacement(Routes.onboarding);
     } else {
       if (loggedIn) {
-        context.navigateReplacement(Routes.home);
+        context.navigateReplacement(Routes.main);
       } else {
         context.navigateReplacement(Routes.login);
       }
