@@ -9,8 +9,6 @@ class ApiServices {
   final Dio _dio;
   ApiServices(this._dio);
 
-
-
   Future<ApiResult<LoginResponse>> login(LoginRequest request) async {
     try {
       Response response = await _dio.post(
@@ -36,6 +34,7 @@ class ApiServices {
     }
   }
 }
+
 
 /*
 DartZ

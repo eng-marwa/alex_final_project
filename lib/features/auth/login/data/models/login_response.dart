@@ -1,3 +1,4 @@
+import 'package:alex_final_project/features/auth/login/data/models/user.dart';
 import 'package:alex_final_project/features/auth/login/domain/entities/login_response_entity.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -30,18 +31,30 @@ class LoginResponse {
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
-
 }
+
 extension LoginResponseExtension on LoginResponse {
   LoginResponseEntity toEntity() {
     return LoginResponseEntity(
-        username,
-        token,
-        id,
-        email,
-        firstName,
-        lastName,
-        gender,
-        image);
+      username,
+      token,
+      id,
+      email,
+      firstName,
+      lastName,
+      gender,
+      image,
+    );
+  }
+
+  UserData toUserData() {
+    return UserData(
+      id: id,
+      email: email,
+      firstName: firstName,
+      lastName: lastName,
+      gender: gender,
+      image: image,
+    );
   }
 }

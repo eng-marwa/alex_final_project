@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:alex_final_project/core/env/env.dart';
+import 'package:alex_final_project/core/storage/secure_storage_helper.dart';
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 import 'package:flutter/services.dart';
@@ -31,7 +32,9 @@ class DioConfig {
   }
 
   static Future<void> loadCertificateForSSLPinning() async {
-    final byteData = await PlatformAssetBundle().load('assets/cert/certification.pem');
+    final byteData = await PlatformAssetBundle().load(
+      'assets/cert/certification.pem',
+    );
     SecurityContext securityContext = SecurityContext(withTrustedRoots: false);
     securityContext.setTrustedCertificatesBytes(byteData.buffer.asUint8List());
     _securityContext = securityContext;
@@ -40,8 +43,11 @@ class DioConfig {
 
 class AuthInterceptor extends InterceptorsWrapper {
   @override
-  void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    String token = '';
+  Future<void> onRequest(
+    RequestOptions options,
+    RequestInterceptorHandler handler,
+  ) async {
+    String? token = await SecureStorageHelper.instance.getToken();
     if (options.path != Env.loginEndPoint) {
       options.headers['Authorization'] = 'Bearer $token';
     }

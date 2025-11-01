@@ -11,15 +11,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Center(
+    return Scaffold(
+      body: Center(
         child: Padding(
           padding: EdgeInsets.all(24.r),
           child: SingleChildScrollView(
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 162.h),
                 SectionWidget(title: 'Top of the week', isSeeAll: true),
-                SizedBox(height: 8.h,),
+                SizedBox(height: 8.h),
                 ProductsList(),
                 SectionWidget(title: 'Best Vendors', isSeeAll: true),
                 SizedBox(height: 8.h),
@@ -31,6 +33,7 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
-      );
+      ),
+    );
   }
 }

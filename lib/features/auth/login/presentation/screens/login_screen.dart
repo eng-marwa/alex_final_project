@@ -84,8 +84,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       SizedBox(height: 24),
                       BlocConsumer<AuthCubit, AuthState>(
-                        buildWhen: (previous, current) =>
-                            current is AuthInitial || current is AuthLoading,
                         builder: (context, state) {
                           if (state is AuthLoading) {
                             return CircularProgressIndicator(
